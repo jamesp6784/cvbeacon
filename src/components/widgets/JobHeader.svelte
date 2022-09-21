@@ -9,7 +9,8 @@
     <img alt="{listing.org} icon" src={listing.icon} />
     <span>
         <p class="title">{listing.title}</p>
-        <p class="org">{listing.org}</p>
+        <p class="subtitle">{listing.org} · {listing.type}</p>
+        <p class="subtitle">{listing.location}</p>
     </span>
 </div>
 
@@ -24,12 +25,16 @@
         display: inline-block;
     }
 
+    p {
+        line-height: 24px;
+    }
+
     .title {
         font-size: 18px;
         font-weight: 500;
     }
 
-    .org {
+    .subtitle {
         font-size: 15px;
     }
 </style>

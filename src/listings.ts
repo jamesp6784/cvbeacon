@@ -7,6 +7,8 @@ const listings = [
         icon: rocketLabIcon,
         title: "Senior IT Engineer | Cloud",
         org: "Rocket Lab",
+        type: "Full-time",
+        location: "Auckland, New Zealand",
         body: [
             {
                 type: "header",
@@ -58,8 +60,10 @@ const listings = [
     },
     {
         icon: sharesiesIcon,
-        title: "Web Developer - Full Time",
+        title: "Web Developer",
         org: "Sharesies",
+        type: "Full-time",
+        location: "Auckland, New Zealand",
         body: [
             {
                 content: "When you first walk through those doors, there's a buzz, a feeling of excitement and energy - it's our amazing people. Our people drive and live by our values, we always care for each other and ourselves, chase remarkable on the daily and we are all in it together and have each other's backs."
@@ -94,6 +98,8 @@ const listings = [
         icon: vistaIcon,
         title: "Full Stack Engineer",
         org: "Vista",
+        type: "Full-time",
+        location: "Auckland, New Zealand",
         body: [
             {
                 type: "header",

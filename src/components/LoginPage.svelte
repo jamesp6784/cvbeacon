@@ -53,15 +53,14 @@
         display: block;
         padding: 12px;
         font-size: 14px;
-        background-color: #eee;
         margin-bottom: 8px;
         width: 100%;
-        border-bottom: 2px solid hsla(202, 60%, 40%, 0);
-        transition: border-bottom 0.1s ease;
+        border: 1px solid #ccc;
+        transition: border 0.1s ease;
     }
 
     input:focus {
-        border-bottom: 2px solid hsl(202, 60%, 40%);
+        border: 1px solid hsl(202, 60%, 40%);
     }
 
     button {
