@@ -1,14 +1,19 @@
 <script lang="ts">
-    let icon;
+    let listing;
+    let clickCallback;
 
-    export { icon };
+    export { listing, clickCallback };
+
+    function click() {
+        clickCallback(listing);
+    }
 </script>
 
-<div>
-    <img src={icon} />
+<div on:click={click}>
+    <img alt="{listing.org} icon" src={listing.icon} />
     <span>
-        <p class="title">Aerospace Engineer - Remote</p>
-        <p class="org">RocketLab</p>
+        <p class="title">{listing.title}</p>
+        <p class="org">{listing.org}</p>
     </span>
 </div>
 
@@ -19,6 +24,8 @@
         padding: 12px 16px;
         border: 1px solid #ddd;
         margin-bottom: 16px;
+        user-select: none;
+        cursor: pointer;
     }
 
     img {

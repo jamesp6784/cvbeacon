@@ -1,28 +1,36 @@
 <script lang="ts">
-    import rocketLabIcon from "../../assets/rocket_lab.png";
+    let listing;
+
+    export { listing };
 </script>
 
 <div class="outer">
     <div class="header">
-        <img src={rocketLabIcon} />
+        <img alt="{listing.org} icon" src={listing.icon} />
         <span>
-            <p class="title">Aerospace Engineer - Remote</p>
-            <p class="org">RocketLab</p>
+            <p class="title">{listing.title}</p>
+            <p class="org">{listing.org}</p>
         </span>
     </div>
 
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
-        feugiat nisl quis massa facilisis, quis ultricies massa scelerisque.
-        Proin in ullamcorper tellus. Donec fermentum dui nisi, eget tristique
-        sapien congue sit amet. Morbi auctor enim quis ipsum eleifend varius.
-        Mauris sed metus lacus. Mauris ut ullamcorper odio, at rutrum enim.
-        Nulla semper orci id interdum semper. Integer nisi ipsum, cursus eget
-        leo ac, dictum molestie nibh. Aenean vulputate elit ut porta
-        pellentesque. Aliquam tempus turpis quis velit dictum malesuada. Nam
-        consequat, elit at maximus semper, erat odio pellentesque massa, non
-        ultrices ligula lacus ac arcu.
-    </p>
+    <div class="body">
+        {#each listing.body as bodyObject}
+            {#if bodyObject.type === "header"}
+                <h3>{bodyObject.content}</h3>
+            {:else if bodyObject.type === "list"}
+                {#each bodyObject.items as listItem}
+                    <li>{listItem}</li>
+                {/each}
+            {:else}
+                <p>{bodyObject.content}</p>
+            {/if}
+        {/each}
+    </div>
+
+    <div class="actions">
+        <button>View details</button>
+        <button class="apply">Apply</button>
+    </div>
 </div>
 
 <style>
@@ -55,5 +63,38 @@
 
     .header {
         margin-bottom: 12px;
+    }
+
+    .body * {
+        margin-top: 16px;
+    }
+
+    .actions {
+        margin-top: 32px;
+        float: right;
+    }
+
+    .actions button {
+        padding: 8px 16px;
+        border: 1px solid hsl(202, 60%, 40%);
+        transition: background-color 0.2s ease, border 0.2s ease;
+        cursor: pointer;
+        font-size: 14px;
+        color: hsl(202, 60%, 40%);
+        box-sizing: content-box;
+    }
+
+    .actions button.apply {
+        background-color: hsl(202, 60%, 40%);
+        color: #fff;
+    }
+
+    .actions button:hover {
+        background-color: hsl(202, 60%, 80%);
+    }
+
+    .actions button.apply:hover {
+        background-color: hsl(202, 60%, 50%);
+        border: 1px solid hsl(202, 60%, 50%);
     }
 </style>

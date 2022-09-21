@@ -1,29 +1,23 @@
 <script lang="ts">
     import JobListing from "./JobListing.svelte";
     import JobDetails from "./JobDetails.svelte";
+    import listings from "../../listings";
 
-    import rocketLabIcon from "../../assets/rocket_lab.png";
-    import sharesiesIcon from "../../assets/sharesies.png";
+    let selected = listings[0];
 
-    let selected;
-
-    // function listingClick(event) {
-    //     event.target.
-    // }
+    function listingClick(listing) {
+        selected = listing;
+    }
 </script>
 
 <div class="container">
     <div class="list">
-        <JobListing icon={rocketLabIcon} on:click={listingClick}/>
-        <JobListing icon={sharesiesIcon}/>
-        <JobListing />
-        <JobListing />
-        <JobListing />
-        <JobListing />
-        <JobListing />
+        {#each listings as listing}
+            <JobListing {listing} clickCallback={listingClick} />
+        {/each}
     </div>
     <div class="details">
-        <JobDetails />
+        <JobDetails listing={selected} />
     </div>
 </div>
 
