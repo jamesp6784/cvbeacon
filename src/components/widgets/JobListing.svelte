@@ -1,9 +1,11 @@
 <script lang="ts">
-    import rocketLabIcon from "../../assets/rocket_lab.png";
+    let icon;
+
+    export { icon };
 </script>
 
 <div>
-    <img src={rocketLabIcon} />
+    <img src={icon} />
     <span>
         <p class="title">Aerospace Engineer - Remote</p>
         <p class="org">RocketLab</p>
