@@ -1,11 +1,12 @@
 import rocketLabIcon from "./assets/rocket_lab.png";
 import sharesiesIcon from "./assets/sharesies.png";
+import vistaIcon from "./assets/vista.png";
 
 const listings = [
     {
         icon: rocketLabIcon,
-        title: "Aerospace Engineer - Remote",
-        org: "RocketLab",
+        title: "Senior IT Engineer | Cloud",
+        org: "Rocket Lab",
         body: [
             {
                 type: "header",
@@ -35,7 +36,7 @@ const listings = [
                 type: "list",
                 items: [
                     "7+ years in a technical role.",
-                    "Advanced problem solving and analytical skills – able to see the big picture, make connections and appropriate decisions.",
+                    "Advanced problem solving and analytical skills - able to see the big picture, make connections and appropriate decisions.",
                     "Excellent verbal and written communication skills.",
                     "Ability to lead teams and also work independently or as part of a team.",
                     "Experience with most and in-depth knowledge in some of:",
@@ -87,6 +88,89 @@ const listings = [
             {
                 content: "We're looking for the right person, not just a list of qualifications. We'd love to hear from you even if you're not sure you fit the bill. Sharesies is committed to promoting and celebrating a diverse and inclusive workplace - a place where we can all be ourselves and thrive in our work. We offer a range of family friendly, inclusive employment policies, flexible working arrangements, wellbeing initiatives, and services to support people from different backgrounds."
             },
+        ]
+    },
+    {
+        icon: vistaIcon,
+        title: "Full Stack Engineer",
+        org: "Vista",
+        body: [
+            {
+                type: "header",
+                content: "Description"
+            },
+            {
+                content: "We have opportunities for Intermediate and Senior level Full Stack .Net Developers - with Angular/Typescript and/or React experience. Come and join our experienced engineering team, and be at the heart of our transformational journey to Vista Cloud."
+            },
+            {
+                content: "A key part of our skilled and fun team, you will:"
+            },
+            {
+                type: "list",
+                items: [
+                    "Collaborate with your squad and other engineering teams to design and implement new features and functionality",
+                    "Maintain quality, ensure responsiveness and security of applications",
+                    "Develop and maintain any or all of the following; front end website architecture, user interactions on web pages and back end website applications",
+                    "Produce and ensure consistent code integrity and development",
+                    "Help to guide and mentor junior level engineers"
+                ]
+            },
+            {
+                content: "We're looking for the right person, not just a list of qualifications. We'd love to hear from you even if you're not sure you fit the bill. Sharesies is committed to promoting and celebrating a diverse and inclusive workplace - a place where we can all be ourselves and thrive in our work. We offer a range of family friendly, inclusive employment policies, flexible working arrangements, wellbeing initiatives, and services to support people from different backgrounds."
+            },
+            {
+                type: "header",
+                content: "About Vista"
+            },
+            {
+                content: "Vista is a world-leading company that makes software for the cinema industry. Started in Auckland, New Zealand, over 25 years ago, we now serve cinemas, film distributors, and moviegoers worldwide."
+            },
+            {
+                content: "Our HQ is in the City Works Depot in Auckland. We have offices and subsidiary companies in Sydney, Los Angeles, London, Amsterdam, Cape Town, Shanghai, Mexico City, and Kuala Lumpur. We use the latest technologies and offer a fun, agile and collaborative environment. We continue to innovate and build our reputation as one of the best Kiwi tech companies to work for."
+            },
+            {
+                type: "header",
+                content: "Requirements"
+            },
+            {
+                content: "Strong experience using most of the following CI/CD technologies and platforms:"
+            },
+            {
+                type: "list",
+                items: [
+                    "C#, .Net CORE",
+                    "React, Angular / TypeScript",
+                    "Docker / Kubernetes / Octopus",
+                    "Microsoft Azure and/or AWS",
+                    "SQL Server database experience and skilled in Agile",
+                    "Demonstrated capability in being adaptable and flexible",
+                    "Strong problem-solving ability"
+                ]
+            },
+            {
+                type: "header",
+                content: "Benefits"
+            },
+            {
+                content: "You will be supported to continually learn and improve your tech skills, share knowledge and ideas in the team, and be part of a dynamic and open culture."
+            },
+            {
+                content: "We have a range of benefits that include:"
+            },
+            {
+                type: "list",
+                items: [
+                    "Hybrid working",
+                    "Medical and Life insurance",
+                    "Extended sick leave, paid parental leave and wellness benefits",
+                    "Excellent work/life balance, including a 4 ½ day working week",
+                    "Strong mentoring & career development focus",
+                    "Fun team events including the Vista Innovation cup and our Christmas party"
+                ]
+            },
+            {
+                content: "If you enjoy a challenge and working in a dynamic and collaborative team, you'll love working at Vista."
+            }
         ]
     }
 ]

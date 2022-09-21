@@ -1,17 +1,13 @@
 <script lang="ts">
+    import JobHeader from "./JobHeader.svelte";
+
     let listing;
 
     export { listing };
 </script>
 
 <div class="outer">
-    <div class="header">
-        <img alt="{listing.org} icon" src={listing.icon} />
-        <span>
-            <p class="title">{listing.title}</p>
-            <p class="org">{listing.org}</p>
-        </span>
-    </div>
+    <JobHeader {listing} small={false} />
 
     <div class="body">
         {#each listing.body as bodyObject}
@@ -19,7 +15,7 @@
                 <h3>{bodyObject.content}</h3>
             {:else if bodyObject.type === "list"}
                 {#each bodyObject.items as listItem}
-                    <li>{listItem}</li>
+                    <p>●&nbsp;&nbsp;{listItem}</p>
                 {/each}
             {:else}
                 <p>{bodyObject.content}</p>

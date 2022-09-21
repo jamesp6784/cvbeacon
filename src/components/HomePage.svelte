@@ -5,6 +5,7 @@
 
 <BasePage>
     <h1>Welcome, <strong>John Doe</strong></h1>
+    <h3>Your recommended listings</h3>
     <JobWidget />
 </BasePage>
 
@@ -12,5 +13,10 @@
     h1 {
         font-weight: 400;
         margin-bottom: 32px;
+    }
+
+    h3 {
+        font-weight: 400;
+        margin-bottom: 16px;
     }
 </style>
