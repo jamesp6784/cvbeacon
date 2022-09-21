@@ -7,7 +7,7 @@
 </script>
 
 <div class="outer">
-    <JobHeader {listing} small={false} />
+    <JobHeader {listing} />
 
     <div class="body">
         {#each listing.body as bodyObject}
@@ -24,8 +24,7 @@
     </div>
 
     <div class="actions">
-        <button>View details</button>
-        <button class="apply">Apply</button>
+        <button>View details</button><button class="apply">Apply</button>
     </div>
 </div>
 
@@ -36,29 +35,6 @@
         padding: 12px 16px;
         border: 1px solid #ddd;
         margin-bottom: 16px;
-    }
-
-    img {
-        width: 72px;
-        margin-right: 8px;
-    }
-
-    span {
-        vertical-align: top;
-        display: inline-block;
-    }
-
-    .title {
-        font-size: 18px;
-        font-weight: 500;
-    }
-
-    .org {
-        font-size: 15px;
-    }
-
-    .header {
-        margin-bottom: 12px;
     }
 
     .body * {
@@ -78,6 +54,7 @@
         font-size: 14px;
         color: hsl(202, 60%, 40%);
         box-sizing: content-box;
+        margin-left: 12px;
     }
 
     .actions button.apply {

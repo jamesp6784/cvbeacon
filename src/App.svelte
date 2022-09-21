@@ -5,7 +5,7 @@
     import CVPage from "./components/CVPage.svelte";
     import { currentPage } from "./store";
 
-    let state = "login";
+    let state;
 
     currentPage.subscribe((val) => {
         state = val;

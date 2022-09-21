@@ -13,7 +13,7 @@
 <div class="container">
     <div class="list">
         {#each listings as listing}
-            <JobListing {listing} small={true} clickCallback={listingClick} />
+            <JobListing {listing} clickCallback={listingClick} />
         {/each}
     </div>
     <div class="details">

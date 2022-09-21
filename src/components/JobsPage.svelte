@@ -22,12 +22,9 @@
     {:else}
         <h1>All Listings</h1>
         <input bind:value={filter} placeholder="Filter..." />
+        <hr />
         {#each filteredListings as listing}
-            <JobListing
-                {listing}
-                small={true}
-                clickCallback={(l) => (viewedListing = l)}
-            />
+            <JobListing {listing} clickCallback={(l) => (viewedListing = l)} />
         {/each}
     {/if}
 </BasePage>
@@ -45,12 +42,17 @@
         font-size: 18px;
         background-color: #fff;
         border: 1px solid #ccc;
-        margin-bottom: 24px;
         transition: border 0.1s ease;
     }
 
     input:focus {
         border: 1px solid hsl(202, 60%, 40%);
+    }
+
+    hr {
+        margin: 24px 16px;
+        background-color: #ccc;
+        height: 1px;
     }
 
     button {

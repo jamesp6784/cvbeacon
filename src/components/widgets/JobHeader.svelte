@@ -1,8 +1,7 @@
 <script lang="ts">
     let listing;
-    let small;
 
-    export { listing, small };
+    export { listing };
 </script>
 
 <div>

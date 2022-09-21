@@ -2,10 +2,9 @@
     import JobHeader from "./JobHeader.svelte";
 
     let listing;
-    let small;
     let clickCallback;
 
-    export { listing, small, clickCallback };
+    export { listing, clickCallback };
 
     function click() {
         clickCallback(listing);
@@ -13,7 +12,7 @@
 </script>
 
 <div on:click={click}>
-    <JobHeader {listing} {small} />
+    <JobHeader {listing} />
 </div>
 
 <style>
