@@ -114,7 +114,7 @@
                 <div class="header">
                     <h1>JOHN DOE</h1>
                     <h3>{email}</h3>
-                    <img src={icon} />
+                    <img alt="John Doe" src={icon} />
                 </div>
                 <div class="body">
                     <p class="subheader">INTRODUCTION</p>
@@ -137,10 +137,10 @@
                     {/each}
                     <p class="subheader">CONTACT</p>
                     {#if email}
-                        <p><img src={emailIcon} /> {email}</p>
+                        <p><img alt="Email icon" src={emailIcon} /> {email}</p>
                     {/if}
                     {#if phone}
-                        <p><img src={phoneIcon} /> {phone}</p>
+                        <p><img alt="Phone icon" src={phoneIcon} /> {phone}</p>
                     {/if}
                 </div>
             </div>
@@ -217,23 +217,12 @@
     }
 
     .panel-customize button {
-        padding: 8px 16px;
-        border: 1px solid #ccc;
-        background-color: #fff;
-        transition: background-color 0.2s ease, border 0.2s ease;
-        cursor: pointer;
         font-size: 12px;
-        box-sizing: content-box;
-        transition: border 0.1s ease;
         margin-bottom: 12px;
     }
 
     .panel-customize .group button {
         margin-bottom: 0;
-    }
-
-    .panel-customize button:hover {
-        border: 1px solid hsl(202, 60%, 40%);
     }
 
     .cv {
@@ -311,17 +300,20 @@
     }
 
     button.download {
+        margin-top: 12px;
         float: right;
+    }
+
+    button {
         padding: 8px 16px;
         transition: background-color 0.2s ease;
         cursor: pointer;
         font-size: 14px;
         background-color: hsl(202, 60%, 40%);
         color: #fff;
-        margin-top: 12px;
     }
 
-    button.download:hover {
+    button:hover {
         background-color: hsl(202, 60%, 50%);
     }
 </style>
