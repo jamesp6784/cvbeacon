@@ -1,5 +1,7 @@
 <script lang="ts">
     import icon from "../../assets/icon.png";
+    import emailIcon from "../../assets/email.svg";
+    import phoneIcon from "../../assets/phone.svg";
 
     let intro =
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet finibus neque, in lobortis nisl. Donec rhoncus ut ex vitae venenatis. Nunc consectetur id nunc ac fringilla.";
@@ -11,7 +13,7 @@
         until: "July 2022",
     };
 
-    let education = [defaultEducation];
+    let education = [structuredClone(defaultEducation)];
 
     let defaultEmployment = {
         name: "Software Engineer Intern",
@@ -20,12 +22,16 @@
         until: "July 2022",
     };
 
-    let employment = [defaultEmployment];
+    let employment = [structuredClone(defaultEmployment)];
 
     let skills = "Lorem\nIpsum\nDolor";
 
+    let email = "jon.doe@aut.ac.nz";
+
+    let phone = "+6421234567";
+
     function addEducation() {
-        education.push(defaultEducation);
+        education.push(structuredClone(defaultEducation));
         education = education;
     }
 
@@ -35,7 +41,7 @@
     }
 
     function addEmployment() {
-        employment.push(defaultEmployment);
+        employment.push(structuredClone(defaultEmployment));
         employment = employment;
     }
 
@@ -47,7 +53,7 @@
 
 <div>
     <div class="container">
-        <div class="list">
+        <div class="panel-customize">
             <p>Introduction</p>
             <textarea bind:value={intro} />
             <p>Education</p>
@@ -60,22 +66,19 @@
                             placeholder="Qualification name"
                         />
                         <input
-                            class="right"
                             bind:value={obj.location}
                             placeholder="Location"
                         />
                     </div>
-                    <div>
+                    <div class="below">
                         <input bind:value={obj.from} placeholder="Start date" />
-                        <input
+                        <input bind:value={obj.until} placeholder="End date" />
+                        <button
                             class="right"
-                            bind:value={obj.until}
-                            placeholder="End date"
-                        />
+                            on:click={() => removeEducation(education)}
+                            >Remove</button
+                        >
                     </div>
-                    <button on:click={() => removeEducation(education)}
-                        >Remove</button
-                    >
                 </div>
             {/each}
             <p>Work Experience</p>
@@ -85,56 +88,65 @@
                     <div>
                         <input bind:value={obj.name} placeholder="Role name" />
                         <input
-                            class="right"
                             bind:value={obj.location}
                             placeholder="Organization"
                         />
                     </div>
-                    <div>
+                    <div class="below">
                         <input bind:value={obj.from} placeholder="Start date" />
-                        <input
+                        <input bind:value={obj.until} placeholder="End date" />
+                        <button
                             class="right"
-                            bind:value={obj.until}
-                            placeholder="End date"
-                        />
+                            on:click={() => removeEmployment(employment)}
+                            >Remove</button
+                        >
                     </div>
-                    <button on:click={() => removeEmployment(employment)}
-                        >Remove</button
-                    >
                 </div>
             {/each}
             <p>Skills</p>
-
             <textarea bind:value={skills} />
+            <p>Contact</p>
+            <input bind:value={email} placeholder="Email" />
+            <input bind:value={phone} placeholder="Phone" />
         </div>
-        <div class="cv">
-            <div class="header">
-                <h1>JOHN DOE</h1>
-                <h3>john.doe@aut.ac.nz</h3>
-                <img src={icon} />
+        <div class="panel-cv">
+            <div class="cv">
+                <div class="header">
+                    <h1>JOHN DOE</h1>
+                    <h3>{email}</h3>
+                    <img src={icon} />
+                </div>
+                <div class="body">
+                    <p class="subheader">INTRODUCTION</p>
+                    <p class="intro">{intro}</p>
+                    <p class="subheader">EDUCATION</p>
+                    {#each education as obj}
+                        <p class="heavy">{obj.name}, {obj.location}</p>
+                        <p class="light">{obj.from} - {obj.until}</p>
+                    {/each}
+                    <p class="subheader">WORK EXPERIENCE</p>
+                    {#each employment as obj}
+                        <p class="heavy">{obj.name}, {obj.location}</p>
+                        <p class="light">{obj.from} - {obj.until}</p>
+                    {/each}
+                    <p class="subheader">SKILLS</p>
+                    {#each skills.split("\n") as skill}
+                        {#if skill}
+                            <p class="list">●&nbsp;&nbsp;{skill}</p>
+                        {/if}
+                    {/each}
+                    <p class="subheader">CONTACT</p>
+                    {#if email}
+                        <p><img src={emailIcon} /> {email}</p>
+                    {/if}
+                    {#if phone}
+                        <p><img src={phoneIcon} /> {phone}</p>
+                    {/if}
+                </div>
             </div>
-            <div class="body">
-                <p class="subheader">INTRODUCTION</p>
-                <p class="intro">{intro}</p>
-                <p class="subheader">EDUCATION</p>
-                {#each education as obj}
-                    <p class="heavy">{obj.name}, {obj.location}</p>
-                    <p class="light">{obj.from} - {obj.until}</p>
-                {/each}
-                <p class="subheader">WORK EXPERIENCE</p>
-                {#each employment as obj}
-                    <p class="heavy">{obj.name}, {obj.location}</p>
-                    <p class="light">{obj.from} - {obj.until}</p>
-                {/each}
-                <p class="subheader">SKILLS</p>
-                {#each skills.split("\n") as skill}
-                    <p class="list">●&nbsp;&nbsp;{skill}</p>
-                {/each}
-                <p class="subheader">CONTACT</p>
-            </div>
+            <button class="download">Download</button>
         </div>
     </div>
-    <button class="download">Download</button>
 </div>
 
 <style>
@@ -145,29 +157,18 @@
         width: 100%;
     }
 
-    .list,
-    .cv {
+    .panel-customize,
+    .panel-cv {
         display: inline-block;
     }
 
-    .list {
+    .panel-customize {
         flex: 1;
         margin-right: 24px;
     }
 
-    .list textarea {
-        resize: none;
-        width: 100%;
-        height: 80px;
-        margin-bottom: 20px;
-    }
-
-    .list input {
-        margin-bottom: 12px;
-    }
-
-    .list input,
-    .list textarea {
+    .panel-customize input,
+    .panel-customize textarea {
         font-size: 14px;
         padding: 8px;
         background-color: #fff;
@@ -175,30 +176,47 @@
         transition: border 0.1s ease;
     }
 
-    .list .group {
+    .panel-customize textarea {
+        resize: none;
+        width: 100%;
+        height: 80px;
+        margin-bottom: 20px;
+    }
+
+    .panel-customize .group {
         border: 1px solid #ccc;
         padding: 8px;
         margin-bottom: 20px;
     }
 
-    .list input {
+    .panel-customize input {
         width: 48%;
     }
 
-    .list input.right {
+    .panel-customize .right {
         float: right;
     }
 
-    .list input:focus,
-    .list textarea:focus {
+    .panel-customize .below {
+        margin-top: 16px;
+    }
+
+    .panel-customize .below input {
+        margin-right: 8px;
+        width: 35%;
+        font-size: 12px;
+    }
+
+    .panel-customize input:focus,
+    .panel-customize textarea:focus {
         border: 1px solid hsl(202, 60%, 40%);
     }
 
-    .list p {
+    .panel-customize p {
         margin-bottom: 8px;
     }
 
-    .list button {
+    .panel-customize button {
         padding: 8px 16px;
         border: 1px solid #ccc;
         background-color: #fff;
@@ -210,11 +228,11 @@
         margin-bottom: 12px;
     }
 
-    .list .group button {
+    .panel-customize .group button {
         margin-bottom: 0;
     }
 
-    .list button:hover {
+    .panel-customize button:hover {
         border: 1px solid hsl(202, 60%, 40%);
     }
 
@@ -259,34 +277,37 @@
         padding: 2vmin 3vmin;
     }
 
-    .cv p {
+    .cv .body p {
         font-size: 1.2vmin;
         font-family: "Roboto", sans-serif;
         margin-bottom: 1vmin;
+        vertical-align: middle;
     }
 
-    .cv .subheader {
+    .cv .body .subheader {
         font-family: "Raleway", sans-serif;
         font-size: 1.5vmin;
         font-weight: 300;
     }
 
-    .cv .heavy {
+    .cv .body .heavy {
         font-weight: 500;
         font-size: 1.3vmin;
         margin-bottom: 0.5vmin;
     }
 
-    .cv .light {
+    .cv .body .light {
         color: #777;
     }
 
-    .cv .intro {
+    .cv .body .intro {
         margin-right: 20vmin;
     }
 
-    .cv .list {
-        display: inline-block;
+    .cv .body img {
+        height: 1.4vmin;
+        vertical-align: middle;
+        margin-right: 0.5vmin;
     }
 
     button.download {
