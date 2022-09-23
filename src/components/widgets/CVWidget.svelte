@@ -26,7 +26,7 @@
 
     let skills = "Lorem\nIpsum\nDolor";
 
-    let email = "jon.doe@aut.ac.nz";
+    let email = "john.doe@aut.ac.nz";
 
     let phone = "+6421234567";
 
